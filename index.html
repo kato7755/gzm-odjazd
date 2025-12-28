@@ -1,49 +1,51 @@
 <!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Odjazdy – Józefowiec Jabłoniowa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Józefowiec Jabłoniowa – odjazdy</title>
   <style>
-    body { font-family: -apple-system, system-ui, Segoe UI, Roboto, Arial, sans-serif; margin: 18px; }
-    h1 { margin: 0 0 8px; }
-    .card { padding: 14px; border: 1px solid #ddd; border-radius: 12px; }
-    .btns { display: grid; gap: 10px; margin-top: 12px; }
-    a.btn {
-      display: block; text-decoration: none; text-align: center;
-      padding: 14px 12px; border-radius: 12px; border: 1px solid #111;
-      font-weight: 600;
+    body {
+      font-family: -apple-system, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      background: #000;
+      color: #0f0;
+      padding: 20px;
     }
-    a.btn.primary { background: #111; color: #fff; }
-    a.btn.secondary { background: #fff; color: #111; }
-    .small { color: #666; font-size: 12px; margin-top: 10px; line-height: 1.35; }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    a {
+      display: block;
+      margin-top: 12px;
+      padding: 14px;
+      background: #0f0;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .small {
+      margin-top: 16px;
+      color: #7f7;
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
-  <h1>Józefowiec Jabłoniowa</h1>
 
-  <div class="card">
-    <div><b>Szybki dostęp do rozkładu</b></div>
-    <div class="btns">
-      <!-- Oficjalna strona rozkładów dla przystanku (ID 3228) -->
-      <a class="btn primary"
-         href="https://rj.transportgzm.pl/v2/rozklady/przystanek/stop/3228/?lang=pl"
-         target="_blank" rel="noopener">
-        Otwórz odjazdy (oficjalne)
-      </a>
+<h1>Józefowiec Jabłoniowa</h1>
 
-      <!-- Portal SDIP (ręczne wyszukanie przystanku) -->
-      <a class="btn secondary"
-         href="https://sdip.transportgzm.pl/"
-         target="_blank" rel="noopener">
-        SDIP – rzeczywiste odjazdy (wyszukaj przystanek)
-      </a>
-    </div>
+<a href="https://rj.transportgzm.pl/v2/rozklady/przystanek/stop/3228/?lang=pl"
+   target="_blank" rel="noopener">
+  Pokaż odjazdy (Transport GZM)
+</a>
 
-    <div class="small">
-      Dane: Transport GZM / ZTM (otwarte dane, CC BY).<br/>
-      Jeśli chcesz, dodamy kolejne przystanki jako lista/zakładki.
-    </div>
-  </div>
+<div class="small">
+  Dane: Transport GZM / ZTM (CC BY)<br>
+  Strona prywatna – szybki dostęp
+</div>
+
 </body>
 </html>
