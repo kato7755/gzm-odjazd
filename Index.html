@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Odjazdy GZM</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #0f0;
+      padding: 16px;
+    }
+    h1 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      padding: 6px 0;
+      border-bottom: 1px solid #033;
+    }
+  </style>
+</head>
+<body>
+
+<h1 id="stop">Ładowanie…</h1>
+<div id="list"></div>
+
+<script>
+/*
+  === KONFIGURACJA ===
+  ZMIEŃ TYLKO TO
+*/
+const STOP_ID = "YOUR_STOP_ID"; // <- tu wstaw stop_id
+const MAX_RESULTS = 5;
+
+/*
+  Publiczny proxy do GTFS-RT (bo przeglądarka ma CORS)
+  Używamy transit.land jako proxy
+*/
+const GTFS_RT_URL =
+  "https://api.transit.land/api/v2/rest/feeds/f-transport~gzm~pl/trip_updates";
+
+/*
+  Pomocnicze
+*/
+function minutesFromNow(unixTime) {
+  const diff = unixTime - Math.floor(Date.now() / 1000);
+  return Math.max(0, Math.round(diff / 60));
+}
+
+async function loadData() {
+  const res = await fetch(GTFS_RT_URL);
+  const data = await res.json();
+
+  const departures = [];
+
+  for (const entity of data.trip_updates) {
+    for (const stop of entity.stop_time_updates) {
+      if (stop.stop_id === STOP_ID && stop.departure?.time) {
+        departures.push({
+          line: entity.trip.route_id,
+          time: stop.departure.time
+        });
+      }
+    }
+  }
+
+  departures.sort((a, b) => a.time - b.time);
+
+  document.getElementById("stop").textContent =
+    "Najbliższe odjazdy";
+
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  departures.slice(0, MAX_RESULTS).forEach(d => {
+    const row = document.createElement("div");
+    row.className = "row";
+    row.innerHTML = `
+      <span>${d.line}</span>
+      <span>${minutesFromNow(d.time)} min</span>
+    `;
+    list.appendChild(row);
+  });
+}
+
+loadData();
+setInterval(loadData, 30000); // odśwież co 30s
+</script>
+
+</body>
+</html>
