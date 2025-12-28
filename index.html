@@ -1,51 +1,33 @@
 <!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Józefowiec Jabłoniowa – odjazdy</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Józefowiec Jabłoniowa — odjazdy</title>
+
+  <!-- automatyczne przejście po 1 sekundzie -->
+  <meta http-equiv="refresh" content="1; url=https://rj.transportgzm.pl/v2/rozklady/przystanek/stop/3228/" />
+
   <style>
-    body {
-      font-family: -apple-system, system-ui, Segoe UI, Roboto, Arial, sans-serif;
-      background: #000;
-      color: #0f0;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 22px;
-      margin-bottom: 16px;
-    }
-    a {
-      display: block;
-      margin-top: 12px;
-      padding: 14px;
-      background: #0f0;
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .small {
-      margin-top: 16px;
-      color: #7f7;
-      font-size: 13px;
-    }
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial; padding:24px; max-width:520px; margin:0 auto;}
+    a,button{display:block; width:100%; padding:16px; font-size:18px; border-radius:14px; border:1px solid #ddd; background:#fff; margin:12px 0; text-align:center; text-decoration:none; color:#111;}
+    .primary{background:#111; color:#fff; border-color:#111;}
+    .hint{color:#666; font-size:14px; margin-top:10px;}
   </style>
 </head>
 <body>
+  <h1>Józefowiec Jabłoniowa</h1>
 
-<h1>Józefowiec Jabłoniowa</h1>
+  <a class="primary" href="https://rj.transportgzm.pl/v2/rozklady/przystanek/stop/3228/">
+    Otwórz odjazdy (oficjalne)
+  </a>
 
-<a href="https://rj.transportgzm.pl/v2/rozklady/przystanek/stop/3228/?lang=pl"
-   target="_blank" rel="noopener">
-  Pokaż odjazdy (Transport GZM)
-</a>
+  <a href="https://sdip.transportgzm.pl/">
+    SDIP — rzeczywiste odjazdy (wyszukaj przystanek)
+  </a>
 
-<div class="small">
-  Dane: Transport GZM / ZTM (CC BY)<br>
-  Strona prywatna – szybki dostęp
-</div>
-
+  <div class="hint">
+    Jeśli nie przekierowało automatycznie, kliknij przycisk powyżej.
+  </div>
 </body>
 </html>
